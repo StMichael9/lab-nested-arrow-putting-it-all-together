@@ -13,7 +13,7 @@ const createLoginTracker = (userInfo) => {
 
     attemptCount++; // ← THIS LINE MUST RUN BEFORE returning "Login Failed"
 
-    if (attemptCount >= 3) {
+    if (attemptCount > 3) {
       locked = true;
       return "Account locked due to too many failed login attempts";
     }
