@@ -18,7 +18,7 @@ const createLoginTracker = (userInfo) => {
       return "Account locked due to too many failed login attempts";
     }
 
-    return "Login Failed"; //  now this runs AFTER counting the attempt
+    return `Attempt ${attemptCount}: Login failed`; //  now this runs AFTER counting the attempt
   };
   return innerFunc;
 };
