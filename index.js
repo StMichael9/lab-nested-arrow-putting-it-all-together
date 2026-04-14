@@ -1,18 +1,16 @@
 const createLoginTracker = (userInfo) => {
   let attemptCount = 0;
-  const locked = false;
+  let locked = false;
   const innerFunc = (passwordAttempt) => {
     attemptCount++;
-    if (passwordAttempt == userInfo.password) {
-      return "Login successful";
-    } else if (attemptCount > 3) {
+
+    if (attemptCount > 3) {
       return "Account locked due to too many failed login attempts";
     }
-
-    if (userInfo.password) {
-      return "Loggged In!";
+    if (passwordAttempt === userInfo.password) {
+      return "Login successful";
     } else {
-      return "You are being locked out";
+      return "Login Failed";
     }
   };
   return innerFunc;
